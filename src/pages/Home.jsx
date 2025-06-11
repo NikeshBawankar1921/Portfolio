@@ -28,7 +28,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className='flex   bg-gradient-to-r via-gray-400 opacity-70  '><img className="justify-center  rounded-lg  w-50  rotate-y-180 pt-3 ml-2" src="https://i.ibb.co/4hHSNHC/1749634840250.png" />
+          <div className='flex   bg-gradient-to-r via-gray-400 opacity-70  '><img className="justify-center  rounded-lg  w-50  rotate-y-180 pt-3 ml-2" src="https://i.ibb.co/GQw08r1s/1749654036541.png" />
           <div className="  bg-clip-text w-full relative"> <h1 className='text-2xl md:text-5xl font-bold text-cyan-300 mt-25'>Nikesh Bawankar</h1>
           <div className='justify-center align-middle text-white md:text-2xl'>Full Stack and Embedded Software Developer</div></div>
           </div>
