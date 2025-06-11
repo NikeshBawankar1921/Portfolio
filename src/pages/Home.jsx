@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="px-4 py-10 max-w-7xl mx-auto">
+    <div className="px-4 py-10 max-w-7xl mx-auto hide-scrollbar">
         
      
       <div className="text-center mb-16">
