@@ -55,9 +55,9 @@ function ChatBot() {
   };
 
   return (
-    <div className='fixed bottom-12 right-10 z-50'>
+    <div className='fixed bottom-12 right-10  rounded-2xl'>
       {tioggel ? (
-        <div className='relative border transform rounded-2xl w-80 h-96 bg-gray-900 border-amber-50'>
+        <div className='relative  transform rounded-2xl w-80 h-96 bg-gray-900 border border-amber-50 z-50'>
           <div
             className='absolute right-0 top-0 text-xl font-bold w-10 h-10 text-white flex items-center justify-center cursor-pointer'
             onClick={() => setToggel(false)}
@@ -81,7 +81,7 @@ function ChatBot() {
             <div ref={bottomRef} />
           </div>
 
-          <div className='absolute bottom-0 w-full flex p-2 bg-gray-900'>
+          <div className='absolute bottom-0 w-full flex p-2 bg-gray-900 rounded-2xl'>
             <input
               type='text'
               value={inText}
