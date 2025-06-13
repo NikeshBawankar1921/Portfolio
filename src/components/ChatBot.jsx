@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { FaFacebookMessenger, FaPlane } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 function ChatBot() {
   const [tioggel, setToggel] = useState(false);
@@ -55,7 +56,7 @@ function ChatBot() {
   };
 
   return (
-    <div className='fixed bottom-12 right-10  rounded-2xl'>
+    <motion.div drag className='fixed bottom-12 right-10  rounded-2xl'>
       {tioggel ? (
         <div className='relative  transform rounded-2xl w-80 h-96 bg-gray-900 border border-amber-50 z-50'>
           <div
@@ -104,7 +105,7 @@ function ChatBot() {
           <FaFacebookMessenger className='size-20' />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
