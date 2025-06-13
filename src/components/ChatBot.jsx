@@ -1,17 +1,37 @@
 import { useState, useRef } from 'react';
+import { motion } from 'framer-motion'
 import { FaFacebookMessenger, FaPlane } from 'react-icons/fa';
 
 
 function ChatBot() {
   const [tioggel, setToggel] = useState(false);
   const [chattext, setChat] = useState([
-    { message: '', response: 'Hi, You can ask anything' },
+    { message: '', response: 'Hi, You can ask Info about Me' },
   ]);
+  const AdminData= `
+    Admin Name: Nikesh bawankar,
+    Education:  "Btech: Yeshwantrao Chavan College of Engineering, Nagpur, Branch: Electronics, Year: 2021-2024 completed" ,
+                "Diploma: Government Polytechnic,Nagpur, Branch: Electronics & teleCom, Year: 2018-2021" ,
+                 "HSC: St. John Highschool, Pulgaon, Branch: Science, Year: 2016-2018" ,
+    Location: "Wardha",
+    Skills: 
+        Frontend: React.js, JavaScript, Tailwind CSS,
+        backend: Node.js, Express, Mongooes, REST APIs,
+        Database: MongoDB, Firebase,
+        Tools: Git/GitHub, ThunderClient,
+    ,
+    About: I'm a passionate Full Stack Developer with expertise in building modern web applications. With a strong
+            foundation in both frontend and backend technologies, I create seamless user experiences and robust
+            server-side solutions.,
+    Certificate:  "Course: Internshala Fullstack Development Course (MERN Stack), Duration: Six-Month" ,
+    Portfolio_Details:"This PortFolio is developed by Nikesh Bawankar using React.js."`
+
   const [inText, setInText] = useState('');
   const APIKey = import.meta.env.VITE_CHATBOT_API;
   const bottomRef = useRef(null);
 
   async function sendMessage() {
+
     if (!inText.trim()) {
       alert('Please enter a message.');
       return;
@@ -28,7 +48,7 @@ function ChatBot() {
         },
         body: JSON.stringify({
           model: 'deepseek/deepseek-r1:free',
-          messages: [{ role: 'user', content: inText }],
+          messages: [{ role: 'user', content: `based on the given data give respones to the asked Question if question is not related to Admin resopnse "Asked about Nikesh", "if someone ask about contact details tell them to click on the contact tab present on the header",data: ${AdminData},Question:,${inText}` }],
         }),
       });
 
@@ -56,7 +76,19 @@ function ChatBot() {
   };
 
   return (
-    <div className='fixed bottom-12 right-10  rounded-2xl'>
+    <motion.div
+      drag
+      whileDrag={{
+        scale: 0.8,
+
+      }}
+      // dragConstraints={{
+      //   left:0,
+      //   right:0,
+      //   top:0,
+      //   bottom:0
+      // }}
+      className='fixed bottom-12 right-10  rounded-2xl'>
       {tioggel ? (
         <div className='relative  transform rounded-2xl w-80 h-96 bg-gray-900 border border-amber-50 z-50'>
           <div
@@ -105,7 +137,7 @@ function ChatBot() {
           <FaFacebookMessenger className='size-20' />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
