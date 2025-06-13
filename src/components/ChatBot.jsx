@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { FaFacebookMessenger, FaPlane } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+
 
 function ChatBot() {
   const [tioggel, setToggel] = useState(false);
