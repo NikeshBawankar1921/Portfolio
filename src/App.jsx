@@ -1,4 +1,5 @@
 import React from 'react';
+import {motion} from 'framer-motion';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
@@ -25,7 +26,10 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
              
             </Routes>
-             <ChatBot/>
+            <motion.div drag>
+               <ChatBot/>
+            </motino.div>
+            
           </main>
         </div>
       </Router>
