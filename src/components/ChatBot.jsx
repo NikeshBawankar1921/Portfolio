@@ -5,6 +5,7 @@ import { FaFacebookMessenger, FaPlane } from 'react-icons/fa';
 
 function ChatBot() {
   const [tioggel, setToggel] = useState(false);
+  const [loading,setLoading]=useState(false)
   const [chattext, setChat] = useState([
     { message: '', response: 'Hi, You can ask Info about Me' },
   ]);
@@ -32,11 +33,13 @@ function ChatBot() {
 
   async function sendMessage() {
 
+    
     if (!inText.trim()) {
       alert('Please enter a message.');
       return;
     }
 
+    setLoading(true)
     try {
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
@@ -66,6 +69,8 @@ function ChatBot() {
     } catch (error) {
       console.log(error);
     }
+
+    setLoading(false)
   }
 
   const handleKeyDown = (e) => {
@@ -117,7 +122,7 @@ function ChatBot() {
           <div className='absolute bottom-0 w-full flex p-2 bg-gray-900 rounded-2xl'>
             <input
               type='text'
-              value={inText}
+              value={loading ? 'Thinking... ': inText}
               onChange={(e) => setInText(e.target.value)}
               onKeyDown={handleKeyDown}
               className='flex-grow p-2 rounded-2xl bg-gray-800 text-white outline-none'
